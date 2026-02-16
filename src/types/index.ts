@@ -1,5 +1,7 @@
 export type Dimension = 'E' | 'I' | 'S' | 'N' | 'T' | 'F' | 'J' | 'P'
 
+export type PersonalityGroup = 'analyst' | 'diplomat' | 'sentinel' | 'explorer'
+
 export interface Question {
   id: number
   question: string
@@ -20,6 +22,7 @@ export interface Answer {
 
 export interface TestResult {
   type: MBTIType
+  group: PersonalityGroup
   percentages: {
     E: number
     I: number
@@ -40,17 +43,35 @@ export type MBTIType =
 
 export interface PersonalityDescription {
   type: MBTIType
+  group: PersonalityGroup
   name: string
+  nameEn: string
   nickname: string
+  tagline: string
   description: string
   strengths: string[]
   weaknesses: string[]
   careers: string[]
   famous: string[]
+  emoji: string
 }
 
 export interface AppSettings {
   fontSize: 'small' | 'medium' | 'large'
   darkMode: boolean
   soundEnabled: boolean
+}
+
+export function getPersonalityGroup(type: MBTIType): PersonalityGroup {
+  const second = type[1]
+  const third = type[2]
+  
+  if (second === 'N' && (third === 'T')) return 'analyst'
+  if (second === 'N' && third === 'F') return 'diplomat'
+  if (second === 'S' && (third === 'T' || third === 'F')) {
+    const fourth = type[3]
+    if (fourth === 'J') return 'sentinel'
+    return 'explorer'
+  }
+  return 'analyst'
 }

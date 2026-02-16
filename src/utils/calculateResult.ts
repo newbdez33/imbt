@@ -1,4 +1,16 @@
-import type { Answer, TestResult, MBTIType, Dimension } from '../types'
+import type { Answer, TestResult, MBTIType, Dimension, PersonalityGroup } from '../types'
+
+function getPersonalityGroup(type: MBTIType): PersonalityGroup {
+  const second = type[1]
+  const third = type[2]
+  const fourth = type[3]
+  
+  if (second === 'N' && third === 'T') return 'analyst'
+  if (second === 'N' && third === 'F') return 'diplomat'
+  if (second === 'S' && fourth === 'J') return 'sentinel'
+  if (second === 'S' && fourth === 'P') return 'explorer'
+  return 'analyst'
+}
 
 export function calculateResult(answers: Answer[]): TestResult {
   const counts: Record<Dimension, number> = {
@@ -26,6 +38,7 @@ export function calculateResult(answers: Answer[]): TestResult {
   }
   
   const type: MBTIType = `${counts.E >= counts.I ? 'E' : 'I'}${counts.S >= counts.N ? 'S' : 'N'}${counts.T >= counts.F ? 'T' : 'F'}${counts.J >= counts.P ? 'J' : 'P'}` as MBTIType
+  const group = getPersonalityGroup(type)
   
-  return { type, percentages }
+  return { type, group, percentages }
 }

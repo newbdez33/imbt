@@ -4,73 +4,160 @@ export function LandingPage() {
   const navigate = useNavigate()
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-b from-primary-50 to-white dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-md w-full space-y-8 text-center">
-        <div className="space-y-4">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-            IMBT 人格测试
-          </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            探索你的性格类型
-          </p>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="max-w-lg mx-auto px-6 py-12">
+        <div className="text-center space-y-6 animate-fade-in">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-analyst-500 to-sentinel-500 shadow-lg mb-4">
+            <span className="text-4xl">🧠</span>
+          </div>
+          
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+              MBTI 人格测试
+            </h1>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              发现你的性格类型
+            </p>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 card-shadow-lg">
+            <div className="flex items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-4">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>约 10 分钟完成</span>
+              <span className="mx-2">·</span>
+              <span>60 道题目</span>
+            </div>
+            
+            <p className="text-gray-600 dark:text-gray-300 text-center mb-6">
+              通过科学的问题了解你的性格倾向，获得详细的人格分析报告。
+            </p>
+
+            <button
+              onClick={() => navigate('/test')}
+              className="w-full py-4 px-6 bg-gradient-to-r from-analyst-600 to-sentinel-600 hover:from-analyst-700 hover:to-sentinel-700 text-white font-semibold rounded-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] card-shadow"
+            >
+              开始测试
+            </button>
+          </div>
         </div>
 
-        <div className="space-y-4 text-left bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-            如何使用
+        <div className="mt-12 space-y-4 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white text-center mb-6">
+            四种人格类型
           </h2>
-          <ul className="space-y-3 text-gray-600 dark:text-gray-300">
-            <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 flex items-center justify-center text-sm font-medium">
-                1
-              </span>
-              <span>完成 60 道选择题</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 flex items-center justify-center text-sm font-medium">
-                2
-              </span>
-              <span>根据你的真实想法选择</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 flex items-center justify-center text-sm font-medium">
-                3
-              </span>
-              <span>获取详细的人格分析报告</span>
-            </li>
-          </ul>
-        </div>
-
-        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-            四个维度
-          </h2>
-          <div className="grid grid-cols-2 gap-3 text-sm">
-            <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-              <div className="font-medium text-gray-900 dark:text-white">E / I</div>
-              <div className="text-gray-500 dark:text-gray-400">外向 / 内向</div>
+          
+          <div className="grid grid-cols-2 gap-3">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-4 card-shadow border-l-4 border-analyst-500">
+              <div className="text-2xl mb-2">🔮</div>
+              <h3 className="font-semibold text-gray-900 dark:text-white text-sm">分析师</h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">INTJ · INTP · ENTJ · ENTP</p>
             </div>
-            <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-              <div className="font-medium text-gray-900 dark:text-white">S / N</div>
-              <div className="text-gray-500 dark:text-gray-400">实感 / 直觉</div>
+            
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-4 card-shadow border-l-4 border-diplomat-500">
+              <div className="text-2xl mb-2">💚</div>
+              <h3 className="font-semibold text-gray-900 dark:text-white text-sm">外交家</h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">INFJ · INFP · ENFJ · ENFP</p>
             </div>
-            <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-              <div className="font-medium text-gray-900 dark:text-white">T / F</div>
-              <div className="text-gray-500 dark:text-gray-400">思考 / 情感</div>
+            
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-4 card-shadow border-l-4 border-sentinel-500">
+              <div className="text-2xl mb-2">💙</div>
+              <h3 className="font-semibold text-gray-900 dark:text-white text-sm">守护者</h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">ISTJ · ISFJ · ESTJ · ESFJ</p>
             </div>
-            <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-              <div className="font-medium text-gray-900 dark:text-white">J / P</div>
-              <div className="text-gray-500 dark:text-gray-400">判断 / 感知</div>
+            
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-4 card-shadow border-l-4 border-explorer-500">
+              <div className="text-2xl mb-2">💛</div>
+              <h3 className="font-semibold text-gray-900 dark:text-white text-sm">探索者</h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">ISTP · ISFP · ESTP · ESFP</p>
             </div>
           </div>
         </div>
 
-        <button
-          onClick={() => navigate('/menu')}
-          className="w-full py-4 px-6 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-xl transition-colors"
-        >
-          开始
-        </button>
+        <div className="mt-12 space-y-4 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white text-center mb-6">
+            四个维度
+          </h2>
+          
+          <div className="space-y-3">
+            <DimensionCard
+              title="能量来源"
+              left={{ code: 'E', name: '外向', desc: '从外部世界获取能量' }}
+              right={{ code: 'I', name: '内向', desc: '从内心世界获取能量' }}
+            />
+            <DimensionCard
+              title="信息感知"
+              left={{ code: 'S', name: '实感', desc: '关注具体事实和细节' }}
+              right={{ code: 'N', name: '直觉', desc: '关注整体模式和可能' }}
+            />
+            <DimensionCard
+              title="决策方式"
+              left={{ code: 'T', name: '思考', desc: '基于逻辑客观分析' }}
+              right={{ code: 'F', name: '情感', desc: '基于价值观和感受' }}
+            />
+            <DimensionCard
+              title="生活态度"
+              left={{ code: 'J', name: '判断', desc: '喜欢有计划的生活' }}
+              right={{ code: 'P', name: '感知', desc: '喜欢灵活随性的生活' }}
+            />
+          </div>
+        </div>
+
+        <div className="mt-12 flex justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <button
+            onClick={() => navigate('/settings')}
+            className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span className="text-sm">设置</span>
+          </button>
+          <button
+            onClick={() => navigate('/about')}
+            className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span className="text-sm">关于</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function DimensionCard({ 
+  title, 
+  left, 
+  right 
+}: { 
+  title: string
+  left: { code: string; name: string; desc: string }
+  right: { code: string; name: string; desc: string }
+}) {
+  return (
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 card-shadow">
+      <div className="text-xs text-gray-500 dark:text-gray-400 text-center mb-3">{title}</div>
+      <div className="flex items-center justify-between">
+        <div className="flex-1 text-center">
+          <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white font-bold mb-1">
+            {left.code}
+          </div>
+          <div className="text-sm font-medium text-gray-900 dark:text-white">{left.name}</div>
+          <div className="text-xs text-gray-500 dark:text-gray-400">{left.desc}</div>
+        </div>
+        <div className="text-gray-300 dark:text-gray-600 px-4">/</div>
+        <div className="flex-1 text-center">
+          <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white font-bold mb-1">
+            {right.code}
+          </div>
+          <div className="text-sm font-medium text-gray-900 dark:text-white">{right.name}</div>
+          <div className="text-xs text-gray-500 dark:text-gray-400">{right.desc}</div>
+        </div>
       </div>
     </div>
   )

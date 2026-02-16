@@ -3,29 +3,75 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
   
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
+  --color-analyst-50: #f5f3ff;
+  --color-analyst-100: #ede9fe;
+  --color-analyst-200: #ddd6fe;
+  --color-analyst-300: #c4b5fd;
+  --color-analyst-400: #a78bfa;
+  --color-analyst-500: #8b5cf6;
+  --color-analyst-600: #7c3aed;
+  --color-analyst-700: #6d28d9;
+  --color-analyst-800: #5b21b6;
+  --color-analyst-900: #4c1d95;
+
+  --color-diplomat-50: #ecfdf5;
+  --color-diplomat-100: #d1fae5;
+  --color-diplomat-200: #a7f3d0;
+  --color-diplomat-300: #6ee7b7;
+  --color-diplomat-400: #34d399;
+  --color-diplomat-500: #10b981;
+  --color-diplomat-600: #059669;
+  --color-diplomat-700: #047857;
+  --color-diplomat-800: #065f46;
+  --color-diplomat-900: #064e3b;
+
+  --color-sentinel-50: #eff6ff;
+  --color-sentinel-100: #dbeafe;
+  --color-sentinel-200: #bfdbfe;
+  --color-sentinel-300: #93c5fd;
+  --color-sentinel-400: #60a5fa;
+  --color-sentinel-500: #3b82f6;
+  --color-sentinel-600: #2563eb;
+  --color-sentinel-700: #1d4ed8;
+  --color-sentinel-800: #1e40af;
+  --color-sentinel-900: #1e3a8a;
+
+  --color-explorer-50: #fffbeb;
+  --color-explorer-100: #fef3c7;
+  --color-explorer-200: #fde68a;
+  --color-explorer-300: #fcd34d;
+  --color-explorer-400: #fbbf24;
+  --color-explorer-500: #f59e0b;
+  --color-explorer-600: #d97706;
+  --color-explorer-700: #b45309;
+  --color-explorer-800: #92400e;
+  --color-explorer-900: #78350f;
+
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
 }
 
 :root {
   font-family: var(--font-sans);
-  line-height: 1.5;
+  line-height: 1.6;
   font-weight: 400;
   color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f9fafb;
 }
 
 body {
@@ -41,4 +87,70 @@ body {
 
 .dark {
   color-scheme: dark;
+  background-color: #111827;
+}
+
+.dark body {
+  background-color: #111827;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card-shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .card-shadow,
+.dark .card-shadow-lg,
+.dark .card-shadow-xl {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }

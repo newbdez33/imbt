@@ -70,8 +70,9 @@ export function useTest() {
     localStorage.removeItem(STORAGE_KEY)
   }, [])
 
-  const getCurrentAnswer = useCallback(() => {
-    return answers.find(a => a.questionId === currentQuestion)?.value ?? null
+  const getCurrentAnswer = useCallback((questionIndex?: number) => {
+    const index = questionIndex !== undefined ? questionIndex : currentQuestion
+    return answers.find(a => a.questionId === index)?.value ?? null
   }, [answers, currentQuestion])
 
   return {
