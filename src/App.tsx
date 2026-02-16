@@ -6,8 +6,9 @@ import { SettingsPage } from './pages/SettingsPage'
 import { AboutPage } from './pages/AboutPage'
 
 function App() {
+  const basename = import.meta.env.BASE_URL
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/menu" element={<MenuPage />} />

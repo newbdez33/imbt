@@ -3,9 +3,14 @@ import type { AppSettings } from '../types'
 
 const STORAGE_KEY = 'imbt-settings'
 
+function getSystemDarkMode(): boolean {
+  if (typeof window === 'undefined') return false
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+}
+
 const defaultSettings: AppSettings = {
   fontSize: 'medium',
-  darkMode: false,
+  darkMode: getSystemDarkMode(),
   soundEnabled: true,
 }
 
@@ -15,7 +20,8 @@ export function useSettings() {
     const stored = localStorage.getItem(STORAGE_KEY)
     if (stored) {
       try {
-        return { ...defaultSettings, ...JSON.parse(stored) }
+        const parsed = JSON.parse(stored)
+        return { ...defaultSettings, ...parsed }
       } catch {
         return defaultSettings
       }
