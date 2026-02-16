@@ -11,6 +11,12 @@ export function MenuPage() {
       icon: '🎯',
     },
     {
+      label: '测试历史',
+      description: '查看以往的测试记录',
+      path: '/history',
+      icon: '📋',
+    },
+    {
       label: '设置',
       description: '字体大小、暗色模式、音效',
       path: '/settings',

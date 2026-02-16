@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { useEffect, useRef } from 'react'
 import { useTest } from '../hooks/useTest'
 import { questions } from '../data/questions'
 import { personalityDescriptions, personalityGroups } from '../data/personalities'
@@ -12,6 +13,7 @@ const groupColors = {
 
 export function TestPage() {
   const navigate = useNavigate()
+  const initializedRef = useRef(false)
   const {
     currentQuestion,
     isComplete,
@@ -20,9 +22,17 @@ export function TestPage() {
     goToNext,
     goToPrevious,
     goToQuestion,
+    startNewTest,
     resetTest,
     getCurrentAnswer,
   } = useTest()
+
+  useEffect(() => {
+    if (!initializedRef.current) {
+      initializedRef.current = true
+      startNewTest()
+    }
+  }, [startNewTest])
 
   const totalQuestions = questions.length
   const question = questions[currentQuestion]

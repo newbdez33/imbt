@@ -62,6 +62,14 @@ export interface AppSettings {
   soundEnabled: boolean
 }
 
+export interface TestHistoryRecord {
+  id: string
+  type: MBTIType
+  group: PersonalityGroup
+  percentages: TestResult['percentages']
+  completedAt: string
+}
+
 export function getPersonalityGroup(type: MBTIType): PersonalityGroup {
   const second = type[1]
   const third = type[2]

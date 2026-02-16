@@ -3,6 +3,7 @@ import type { Answer, TestResult, Dimension } from '../types'
 import { calculateResult } from '../utils/calculateResult'
 
 const STORAGE_KEY = 'imbt-test-state'
+const HISTORY_KEY = 'imbt-test-history'
 
 export function useTest() {
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -20,6 +21,28 @@ export function useTest() {
   })
   const [isComplete, setIsComplete] = useState(false)
   const [result, setResult] = useState<TestResult | null>(null)
+
+  const saveToHistory = useCallback((testResult: TestResult) => {
+    const record = {
+      id: Date.now().toString(),
+      type: testResult.type,
+      group: testResult.group,
+      percentages: testResult.percentages,
+      completedAt: new Date().toISOString(),
+    }
+    
+    const stored = localStorage.getItem(HISTORY_KEY)
+    let history: typeof record[] = []
+    if (stored) {
+      try {
+        history = JSON.parse(stored)
+      } catch {
+        history = []
+      }
+    }
+    
+    localStorage.setItem(HISTORY_KEY, JSON.stringify([record, ...history]))
+  }, [])
 
   const answerQuestion = useCallback((value: Dimension) => {
     const newAnswer: Answer = {
@@ -47,8 +70,9 @@ export function useTest() {
       const finalResult = calculateResult(answers)
       setResult(finalResult)
       setIsComplete(true)
+      saveToHistory(finalResult)
     }
-  }, [currentQuestion, answers])
+  }, [currentQuestion, answers, saveToHistory])
 
   const goToPrevious = useCallback(() => {
     if (currentQuestion > 0) {
@@ -60,6 +84,14 @@ export function useTest() {
     if (index >= 0 && index < totalQuestions) {
       setCurrentQuestion(index)
     }
+  }, [])
+
+  const startNewTest = useCallback(() => {
+    setCurrentQuestion(0)
+    setAnswers([])
+    setIsComplete(false)
+    setResult(null)
+    localStorage.removeItem(STORAGE_KEY)
   }, [])
 
   const resetTest = useCallback(() => {
@@ -84,6 +116,7 @@ export function useTest() {
     goToNext,
     goToPrevious,
     goToQuestion,
+    startNewTest,
     resetTest,
     getCurrentAnswer,
   }
