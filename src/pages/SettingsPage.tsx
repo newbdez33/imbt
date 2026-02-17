@@ -75,10 +75,8 @@ export function SettingsPage() {
                   }`}
                 >
                   <div
-                    className={`absolute top-0.5 w-6 h-6 rounded-full bg-white shadow transition-transform ${
-                      settings.darkMode ? 'translate-x-5.5' : 'translate-x-0.5'
-                    }`}
-                    style={{ transform: settings.darkMode ? 'translateX(22px)' : 'translateX(2px)' }}
+                    className="absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow transition-transform duration-200"
+                    style={{ transform: settings.darkMode ? 'translateX(20px)' : 'translateX(0)' }}
                   />
                 </button>
               </div>
@@ -124,10 +122,8 @@ export function SettingsPage() {
                 }`}
               >
                 <div
-                  className={`absolute top-0.5 w-6 h-6 rounded-full bg-white shadow transition-transform ${
-                    settings.soundEnabled ? 'translate-x-5.5' : 'translate-x-0.5'
-                  }`}
-                  style={{ transform: settings.soundEnabled ? 'translateX(22px)' : 'translateX(2px)' }}
+                  className="absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow transition-transform duration-200"
+                  style={{ transform: settings.soundEnabled ? 'translateX(20px)' : 'translateX(0)' }}
                 />
               </button>
             </div>
