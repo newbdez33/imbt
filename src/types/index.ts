@@ -1,4 +1,7 @@
 export type Dimension = 'E' | 'I' | 'S' | 'N' | 'T' | 'F' | 'J' | 'P'
+export type NFCExtraDimension = 'H' | 'C' | 'A' | 'O'
+export type NFCDimension = Dimension | NFCExtraDimension
+export type TestType = 'mbti' | 'nfc'
 
 export type PersonalityGroup = 'analyst' | 'diplomat' | 'sentinel' | 'explorer'
 
@@ -85,4 +88,89 @@ export function getPersonalityGroup(type: MBTIType): PersonalityGroup {
     return 'explorer'
   }
   return 'analyst'
+}
+
+export type NFCMBTIType = MBTIType
+export type NFCType = `${MBTIType}-${'H' | 'C'}-${'A' | 'O'}`
+
+export interface NFCQuestion {
+  id: number
+  question: string
+  dimension: 'E' | 'I' | 'S' | 'N' | 'T' | 'F' | 'J' | 'P' | 'H' | 'C' | 'A' | 'O'
+  optionA: string
+  optionB: string
+}
+
+export interface NFCAnswer {
+  questionId: number
+  value: -2 | -1 | 0 | 1 | 2
+}
+
+export interface NFCTestResult {
+  testType: 'nfc'
+  type: NFCType
+  baseType: MBTIType
+  group: PersonalityGroup
+  suffix: {
+    warmth: 'H' | 'C'
+    decisiveness: 'A' | 'O'
+  }
+  scores: {
+    E: number
+    I: number
+    S: number
+    N: number
+    T: number
+    F: number
+    J: number
+    P: number
+    H: number
+    C: number
+    A: number
+    O: number
+  }
+  percentages: {
+    E: number
+    I: number
+    S: number
+    N: number
+    T: number
+    F: number
+    J: number
+    P: number
+    H: number
+    C: number
+    A: number
+    O: number
+  }
+}
+
+export interface NFCTestHistoryRecord {
+  id: string
+  testType: 'nfc'
+  type: NFCType
+  baseType: MBTIType
+  group: PersonalityGroup
+  percentages: NFCTestResult['percentages']
+  completedAt: string
+}
+
+export interface NFCPersonalityDescription {
+  type: NFCType
+  baseType: MBTIType
+  group: PersonalityGroup
+  name: string
+  nameEn: string
+  nickname: string
+  tagline: string
+  description: string
+  strengths: string[]
+  weaknesses: string[]
+  careers: string[]
+  famous: string[]
+  emoji: string
+  warmth: 'H' | 'C'
+  decisiveness: 'A' | 'O'
+  warmthDesc: string
+  decisivenessDesc: string
 }
