@@ -29,17 +29,32 @@ const resources = {
   },
 }
 
-const savedLanguage = typeof window !== 'undefined' 
-  ? localStorage.getItem('imbt-settings')
-    ? JSON.parse(localStorage.getItem('imbt-settings') || '{}').language || 'zh-CN'
-    : 'zh-CN'
-  : 'zh-CN'
+function getBrowserLanguage(): string {
+  const lang = navigator.language
+  if (lang.startsWith('ja')) return 'ja'
+  if (lang.startsWith('en')) return 'en'
+  return 'zh-CN'
+}
+
+function getInitialLanguage(): string {
+  if (typeof window === 'undefined') return 'zh-CN'
+  const stored = localStorage.getItem('imbt-settings')
+  if (stored) {
+    try {
+      const parsed = JSON.parse(stored)
+      if (parsed.language) return parsed.language
+    } catch {
+      // ignore
+    }
+  }
+  return getBrowserLanguage()
+}
 
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: savedLanguage,
+    lng: getInitialLanguage(),
     fallbackLng: 'zh-CN',
     interpolation: {
       escapeValue: false,

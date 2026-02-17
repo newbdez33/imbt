@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import i18n from '../locales/i18n'
 import type { AppSettings } from '../types'
 
@@ -17,31 +17,42 @@ function getBrowserLanguage(): AppSettings['language'] {
   return 'zh-CN'
 }
 
-const defaultSettings: AppSettings = {
-  fontSize: 'medium',
-  darkMode: getSystemDarkMode(),
-  soundEnabled: true,
-  language: getBrowserLanguage(),
+function loadSavedSettings(): Partial<AppSettings> | null {
+  if (typeof window === 'undefined') return null
+  const stored = localStorage.getItem(STORAGE_KEY)
+  if (stored) {
+    try {
+      return JSON.parse(stored)
+    } catch {
+      return null
+    }
+  }
+  return null
 }
 
 export function useSettings() {
+  const isInitialized = useRef(false)
+  const savedSettings = useRef(loadSavedSettings())
+  
   const [settings, setSettings] = useState<AppSettings>(() => {
-    if (typeof window === 'undefined') return defaultSettings
-    const stored = localStorage.getItem(STORAGE_KEY)
-    if (stored) {
-      try {
-        const parsed = JSON.parse(stored)
-        return { ...defaultSettings, ...parsed }
-      } catch {
-        return defaultSettings
-      }
+    const saved = savedSettings.current
+    return {
+      fontSize: saved?.fontSize || 'medium',
+      darkMode: saved?.darkMode ?? getSystemDarkMode(),
+      soundEnabled: saved?.soundEnabled ?? true,
+      language: saved?.language || getBrowserLanguage(),
     }
-    return defaultSettings
   })
 
   useEffect(() => {
+    if (!isInitialized.current) {
+      isInitialized.current = true
+      return
+    }
     localStorage.setItem(STORAGE_KEY, JSON.stringify(settings))
-    
+  }, [settings])
+
+  useEffect(() => {
     if (settings.darkMode) {
       document.documentElement.classList.add('dark')
     } else {
@@ -50,7 +61,7 @@ export function useSettings() {
     
     const fontSizes = { small: '14px', medium: '16px', large: '18px' }
     document.documentElement.style.fontSize = fontSizes[settings.fontSize]
-  }, [settings])
+  }, [settings.darkMode, settings.fontSize])
 
   useEffect(() => {
     if (i18n.language !== settings.language) {
