@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useTest } from '../hooks/useTest'
 import { useLocalizedData } from '../hooks/useLocalizedData'
+import { useSound } from '../hooks/useSound'
 import { personalityGroups } from '../data/personalities'
 
 const groupColors = {
@@ -16,7 +17,9 @@ export function TestPage() {
   const navigate = useNavigate()
   const { t } = useTranslation()
   const { getQuestions, getPersonality, getGroupName } = useLocalizedData()
+  const { play } = useSound()
   const initializedRef = useRef(false)
+  const playedSuccessRef = useRef(false)
   const {
     currentQuestion,
     isComplete,
@@ -36,6 +39,13 @@ export function TestPage() {
       startNewTest()
     }
   }, [startNewTest])
+
+  useEffect(() => {
+    if (isComplete && !playedSuccessRef.current) {
+      playedSuccessRef.current = true
+      play('success')
+    }
+  }, [isComplete, play])
 
   const questions = getQuestions()
   const totalQuestions = questions.length
@@ -168,13 +178,13 @@ export function TestPage() {
 
             <div className="flex gap-3 pt-4 animate-slide-up" style={{ animationDelay: '0.6s' }}>
               <button
-                onClick={resetTest}
+                onClick={() => { play('click'); resetTest(); playedSuccessRef.current = false }}
                 className="flex-1 py-3 px-4 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium rounded-xl transition-colors hover:bg-gray-200 dark:hover:bg-gray-600"
               >
                 {t('test.retake')}
               </button>
               <button
-                onClick={() => navigate('/')}
+                onClick={() => { play('click'); navigate('/') }}
                 className={`flex-1 py-3 px-4 ${colors.bg} text-white font-medium rounded-xl transition-colors hover:opacity-90`}
               >
                 {t('test.backHome')}
@@ -192,7 +202,7 @@ export function TestPage() {
         <div className="max-w-lg mx-auto px-6 py-4">
           <div className="flex items-center gap-4">
             <button
-              onClick={() => navigate('/')}
+              onClick={() => { play('click'); navigate('/') }}
               className="p-2 -ml-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -224,7 +234,7 @@ export function TestPage() {
 
             <div className="space-y-3">
               <button
-                onClick={() => answerQuestion(question.choiceA.value)}
+                onClick={() => { play('click'); answerQuestion(question.choiceA.value) }}
                 className={`w-full p-5 rounded-2xl border-2 transition-all text-left group ${
                   currentAnswer === question.choiceA.value
                     ? 'border-analyst-500 bg-analyst-50 dark:bg-analyst-900/20'
@@ -254,7 +264,7 @@ export function TestPage() {
               </button>
 
               <button
-                onClick={() => answerQuestion(question.choiceB.value)}
+                onClick={() => { play('click'); answerQuestion(question.choiceB.value) }}
                 className={`w-full p-5 rounded-2xl border-2 transition-all text-left group ${
                   currentAnswer === question.choiceB.value
                     ? 'border-analyst-500 bg-analyst-50 dark:bg-analyst-900/20'
@@ -287,14 +297,14 @@ export function TestPage() {
 
           <div className="flex gap-3 mt-8">
             <button
-              onClick={goToPrevious}
+              onClick={() => { play('click'); goToPrevious() }}
               disabled={currentQuestion === 0}
               className="flex-1 py-3.5 px-4 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium rounded-xl transition-colors disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-200 dark:hover:bg-gray-600"
             >
               {t('test.previous')}
             </button>
             <button
-              onClick={() => goToNext(totalQuestions)}
+              onClick={() => { play(currentQuestion === totalQuestions - 1 ? 'success' : 'click'); goToNext(totalQuestions) }}
               disabled={!currentAnswer}
               className="flex-1 py-3.5 px-4 bg-gradient-to-r from-analyst-600 to-sentinel-600 text-white font-medium rounded-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:opacity-90"
             >
@@ -309,7 +319,7 @@ export function TestPage() {
               return (
                 <button
                   key={i}
-                  onClick={() => goToQuestion(i, totalQuestions)}
+                  onClick={() => { play('click'); goToQuestion(i, totalQuestions) }}
                   className={`w-2.5 h-2.5 rounded-full transition-all ${
                     isCurrent
                       ? 'bg-analyst-500 scale-125'

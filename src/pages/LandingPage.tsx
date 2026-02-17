@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useSound } from '../hooks/useSound'
 
 export function LandingPage() {
   const navigate = useNavigate()
   const { t } = useTranslation()
+  const { play } = useSound()
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -37,7 +39,7 @@ export function LandingPage() {
             </p>
 
             <button
-              onClick={() => navigate('/test')}
+              onClick={() => { play('click'); navigate('/test') }}
               className="w-full py-4 px-6 bg-gradient-to-r from-analyst-600 to-sentinel-600 hover:from-analyst-700 hover:to-sentinel-700 text-white font-semibold rounded-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] card-shadow"
             >
               {t('landing.startTest')}
@@ -108,7 +110,7 @@ export function LandingPage() {
 
         <div className="mt-12 flex justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
           <button
-            onClick={() => navigate('/settings')}
+            onClick={() => { play('click'); navigate('/settings') }}
             className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,7 +120,7 @@ export function LandingPage() {
             <span className="text-sm">{t('landing.settings')}</span>
           </button>
           <button
-            onClick={() => navigate('/about')}
+            onClick={() => { play('click'); navigate('/about') }}
             className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

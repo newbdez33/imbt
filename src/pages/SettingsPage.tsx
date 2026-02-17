@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useSettings } from '../hooks/useSettings'
+import { useSound } from '../hooks/useSound'
 import type { Language } from '../types'
 
 const languages: { code: Language; label: string }[] = [
@@ -13,13 +14,39 @@ export function SettingsPage() {
   const navigate = useNavigate()
   const { t } = useTranslation()
   const { settings, updateSettings } = useSettings()
+  const { play } = useSound()
+
+  const handleLanguageChange = (code: Language) => {
+    play('click')
+    updateSettings({ language: code })
+  }
+
+  const handleDarkModeToggle = () => {
+    play('switch')
+    updateSettings({ darkMode: !settings.darkMode })
+  }
+
+  const handleFontSizeChange = (size: 'small' | 'medium' | 'large') => {
+    play('click')
+    updateSettings({ fontSize: size })
+  }
+
+  const handleSoundToggle = () => {
+    updateSettings({ soundEnabled: !settings.soundEnabled })
+  }
+
+  const handleClearData = () => {
+    play('click')
+    localStorage.clear()
+    window.location.reload()
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-8">
       <div className="max-w-lg mx-auto px-6 pt-6">
         <div className="flex items-center gap-4 mb-8">
           <button
-            onClick={() => navigate('/')}
+            onClick={() => { play('click'); navigate('/') }}
             className="p-2 -ml-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,7 +70,7 @@ export function SettingsPage() {
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
-                    onClick={() => updateSettings({ language: lang.code })}
+                    onClick={() => handleLanguageChange(lang.code)}
                     className={`flex-1 py-2.5 px-4 rounded-xl font-medium transition-all ${
                       settings.language === lang.code
                         ? 'bg-analyst-500 text-white'
@@ -69,7 +96,7 @@ export function SettingsPage() {
                   <div className="text-sm text-gray-500 dark:text-gray-400">{t('settings.darkModeDesc')}</div>
                 </div>
                 <button
-                  onClick={() => updateSettings({ darkMode: !settings.darkMode })}
+                  onClick={handleDarkModeToggle}
                   className={`relative w-12 h-7 rounded-full transition-colors flex-shrink-0 ${
                     settings.darkMode ? 'bg-analyst-500' : 'bg-gray-300 dark:bg-gray-600'
                   }`}
@@ -90,7 +117,7 @@ export function SettingsPage() {
                   {(['small', 'medium', 'large'] as const).map((size) => (
                     <button
                       key={size}
-                      onClick={() => updateSettings({ fontSize: size })}
+                      onClick={() => handleFontSizeChange(size)}
                       className={`flex-1 py-2.5 px-4 rounded-xl font-medium transition-all ${
                         settings.fontSize === size
                           ? 'bg-analyst-500 text-white'
@@ -116,7 +143,7 @@ export function SettingsPage() {
                 <div className="text-sm text-gray-500 dark:text-gray-400">{t('settings.soundEnabledDesc')}</div>
               </div>
               <button
-                onClick={() => updateSettings({ soundEnabled: !settings.soundEnabled })}
+                onClick={handleSoundToggle}
                 className={`relative w-12 h-7 rounded-full transition-colors flex-shrink-0 ${
                   settings.soundEnabled ? 'bg-analyst-500' : 'bg-gray-300 dark:bg-gray-600'
                 }`}
@@ -136,10 +163,7 @@ export function SettingsPage() {
             
             <div className="px-6 py-4">
               <button
-                onClick={() => {
-                  localStorage.clear()
-                  window.location.reload()
-                }}
+                onClick={handleClearData}
                 className="w-full py-3 px-4 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 font-medium rounded-xl transition-colors hover:bg-red-100 dark:hover:bg-red-900/30"
               >
                 {t('settings.clearData')}

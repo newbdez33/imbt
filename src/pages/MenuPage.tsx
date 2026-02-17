@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useSound } from '../hooks/useSound'
 
 export function MenuPage() {
   const navigate = useNavigate()
   const { t } = useTranslation()
+  const { play } = useSound()
 
   const menuItems = [
     {
@@ -43,7 +45,7 @@ export function MenuPage() {
           {menuItems.map((item) => (
             <button
               key={item.path}
-              onClick={() => navigate(item.path)}
+              onClick={() => { play('click'); navigate(item.path) }}
               className="w-full p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow text-left flex items-center gap-4"
             >
               <span className="text-2xl">{item.icon}</span>

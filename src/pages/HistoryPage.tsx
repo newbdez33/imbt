@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { TestHistoryRecord } from '../types'
 import { useLocalizedData } from '../hooks/useLocalizedData'
+import { useSound } from '../hooks/useSound'
 
 const HISTORY_KEY = 'imbt-test-history'
 
@@ -30,9 +31,11 @@ export function HistoryPage() {
   const navigate = useNavigate()
   const { t, i18n } = useTranslation()
   const { getPersonality, getGroupName } = useLocalizedData()
+  const { play } = useSound()
   const [history, setHistory] = useState<TestHistoryRecord[]>(loadHistory)
 
   const deleteRecord = (id: string) => {
+    play('click')
     const newHistory = history.filter(r => r.id !== id)
     setHistory(newHistory)
     localStorage.setItem(HISTORY_KEY, JSON.stringify(newHistory))
@@ -40,6 +43,7 @@ export function HistoryPage() {
 
   const clearHistory = () => {
     if (confirm(t('history.confirmClear'))) {
+      play('click')
       setHistory([])
       localStorage.removeItem(HISTORY_KEY)
     }
@@ -63,7 +67,7 @@ export function HistoryPage() {
         <div className="max-w-lg mx-auto px-6 py-4">
           <div className="flex items-center gap-4">
             <button
-              onClick={() => navigate('/menu')}
+              onClick={() => { play('click'); navigate('/menu') }}
               className="p-2 -ml-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,7 +93,7 @@ export function HistoryPage() {
             <div className="text-6xl mb-4">📋</div>
             <p className="text-gray-500 dark:text-gray-400">{t('history.empty')}</p>
             <button
-              onClick={() => navigate('/test')}
+              onClick={() => { play('click'); navigate('/test') }}
               className="mt-4 px-6 py-2 bg-gradient-to-r from-analyst-600 to-sentinel-600 text-white font-medium rounded-xl hover:opacity-90 transition-opacity"
             >
               {t('landing.startTest')}

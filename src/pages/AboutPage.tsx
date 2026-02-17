@@ -1,16 +1,18 @@
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useSound } from '../hooks/useSound'
 
 export function AboutPage() {
   const navigate = useNavigate()
   const { t } = useTranslation()
+  const { play } = useSound()
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-8">
       <div className="max-w-lg mx-auto px-6 pt-6">
         <div className="flex items-center gap-4 mb-8">
           <button
-            onClick={() => navigate('/')}
+            onClick={() => { play('click'); navigate('/') }}
             className="p-2 -ml-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
