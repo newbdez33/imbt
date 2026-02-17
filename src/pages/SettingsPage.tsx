@@ -63,14 +63,14 @@ export function SettingsPage() {
             </h2>
             
             <div className="divide-y divide-gray-100 dark:divide-gray-700">
-              <div className="px-6 py-4 flex items-center justify-between">
-                <div>
+              <div className="px-6 py-4 flex items-center justify-between gap-4">
+                <div className="min-w-0 flex-1">
                   <div className="text-gray-900 dark:text-white font-medium">{t('settings.darkMode')}</div>
                   <div className="text-sm text-gray-500 dark:text-gray-400">{t('settings.darkModeDesc')}</div>
                 </div>
                 <button
                   onClick={() => updateSettings({ darkMode: !settings.darkMode })}
-                  className={`relative w-12 h-7 rounded-full transition-colors ${
+                  className={`relative w-12 h-7 rounded-full transition-colors flex-shrink-0 ${
                     settings.darkMode ? 'bg-analyst-500' : 'bg-gray-300 dark:bg-gray-600'
                   }`}
                 >
@@ -112,14 +112,14 @@ export function SettingsPage() {
               {t('settings.sound')}
             </h2>
             
-            <div className="px-6 py-4 flex items-center justify-between">
-              <div>
+            <div className="px-6 py-4 flex items-center justify-between gap-4">
+              <div className="min-w-0 flex-1">
                 <div className="text-gray-900 dark:text-white font-medium">{t('settings.soundEnabled')}</div>
                 <div className="text-sm text-gray-500 dark:text-gray-400">{t('settings.soundEnabledDesc')}</div>
               </div>
               <button
                 onClick={() => updateSettings({ soundEnabled: !settings.soundEnabled })}
-                className={`relative w-12 h-7 rounded-full transition-colors ${
+                className={`relative w-12 h-7 rounded-full transition-colors flex-shrink-0 ${
                   settings.soundEnabled ? 'bg-analyst-500' : 'bg-gray-300 dark:bg-gray-600'
                 }`}
               >
