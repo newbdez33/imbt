@@ -24,25 +24,34 @@ export function LandingPage() {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 card-shadow-lg">
-            <div className="flex items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-4">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>{t('landing.duration')}</span>
-              <span className="mx-2">·</span>
-              <span>{t('landing.questions')}</span>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 card-shadow-lg space-y-3">
+            <div className="text-sm text-gray-500 dark:text-gray-400 text-center mb-2">
+              选择测试类型
             </div>
             
-            <p className="text-gray-600 dark:text-gray-300 text-center mb-6">
-              {t('landing.description')}
-            </p>
-
             <button
               onClick={() => { play('click'); navigate('/test') }}
-              className="w-full py-4 px-6 bg-gradient-to-r from-analyst-600 to-sentinel-600 hover:from-analyst-700 hover:to-sentinel-700 text-white font-semibold rounded-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] card-shadow"
+              className="w-full p-4 bg-gradient-to-r from-analyst-500 to-diplomat-500 hover:opacity-90 text-white rounded-xl text-left flex items-center gap-4 transition-all"
             >
-              {t('landing.startTest')}
+              <span className="text-2xl">🧩</span>
+              <div>
+                <div className="font-semibold">MBTI 测试</div>
+                <div className="text-sm text-white/80">16种人格 · 60题 · 约8分钟</div>
+              </div>
+            </button>
+
+            <button
+              onClick={() => { play('click'); navigate('/test/nfc') }}
+              className="relative w-full p-4 bg-gradient-to-r from-explorer-500 to-sentinel-500 hover:opacity-90 text-white rounded-xl text-left flex items-center gap-4 transition-all"
+            >
+              <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-green-500 text-white text-xs font-medium rounded-full">
+                新
+              </span>
+              <span className="text-2xl">🔬</span>
+              <div>
+                <div className="font-semibold">NFC 64型测试</div>
+                <div className="text-sm text-white/80">64种人格 · 95题 · 约12分钟</div>
+              </div>
             </button>
           </div>
         </div>
