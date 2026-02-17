@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import i18n from '../locales/i18n'
 import type { AppSettings } from '../types'
 
 const STORAGE_KEY = 'imbt-settings'
@@ -8,10 +9,19 @@ function getSystemDarkMode(): boolean {
   return window.matchMedia('(prefers-color-scheme: dark)').matches
 }
 
+function getBrowserLanguage(): AppSettings['language'] {
+  if (typeof window === 'undefined') return 'zh-CN'
+  const lang = navigator.language
+  if (lang.startsWith('ja')) return 'ja'
+  if (lang.startsWith('en')) return 'en'
+  return 'zh-CN'
+}
+
 const defaultSettings: AppSettings = {
   fontSize: 'medium',
   darkMode: getSystemDarkMode(),
   soundEnabled: true,
+  language: getBrowserLanguage(),
 }
 
 export function useSettings() {
@@ -41,6 +51,12 @@ export function useSettings() {
     const fontSizes = { small: '14px', medium: '16px', large: '18px' }
     document.documentElement.style.fontSize = fontSizes[settings.fontSize]
   }, [settings])
+
+  useEffect(() => {
+    if (i18n.language !== settings.language) {
+      i18n.changeLanguage(settings.language)
+    }
+  }, [settings.language])
 
   const updateSettings = (updates: Partial<AppSettings>) => {
     setSettings(prev => ({ ...prev, ...updates }))

@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export function AboutPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-8">
@@ -15,29 +17,29 @@ export function AboutPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">关于</h1>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{t('about.title')}</h1>
         </div>
 
         <div className="text-center py-8 animate-fade-in">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-analyst-500 to-sentinel-500 shadow-lg mb-4">
             <span className="text-4xl">🧠</span>
           </div>
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white">MBTI 人格测试</h2>
-          <p className="text-gray-500 dark:text-gray-400 mt-1">版本 1.0.0</p>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">{t('app.title')}</h2>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">{t('app.version')}</p>
         </div>
 
         <div className="space-y-4 animate-slide-up" style={{ animationDelay: '0.1s' }}>
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 card-shadow">
             <h3 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
               <span className="text-xl">📚</span>
-              关于 MBTI
+              {t('about.aboutMBTI')}
             </h3>
             <div className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed space-y-3">
               <p>
-                MBTI（迈尔斯-布里格斯类型指标）是一种人格类型评估工具，基于卡尔·荣格的心理类型理论发展而来。
+                {t('about.aboutMBTIDesc1')}
               </p>
               <p>
-                该测试通过四个维度（外向/内向、实感/直觉、思考/情感、判断/感知）来评估人格类型，共可组合成16种不同的人格类型。
+                {t('about.aboutMBTIDesc2')}
               </p>
             </div>
           </div>
@@ -45,34 +47,34 @@ export function AboutPage() {
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 card-shadow animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <h3 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
               <span className="text-xl">🎨</span>
-              四种类型
+              {t('about.fourTypes')}
             </h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3 p-3 rounded-xl bg-analyst-50 dark:bg-analyst-900/20">
                 <span className="text-xl">🔮</span>
                 <div>
-                  <div className="font-medium text-analyst-700 dark:text-analyst-300">分析师</div>
+                  <div className="font-medium text-analyst-700 dark:text-analyst-300">{t('groups.analyst')}</div>
                   <div className="text-xs text-analyst-600 dark:text-analyst-400">INTJ, INTP, ENTJ, ENTP</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 p-3 rounded-xl bg-diplomat-50 dark:bg-diplomat-900/20">
                 <span className="text-xl">💚</span>
                 <div>
-                  <div className="font-medium text-diplomat-700 dark:text-diplomat-300">外交家</div>
+                  <div className="font-medium text-diplomat-700 dark:text-diplomat-300">{t('groups.diplomat')}</div>
                   <div className="text-xs text-diplomat-600 dark:text-diplomat-400">INFJ, INFP, ENFJ, ENFP</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 p-3 rounded-xl bg-sentinel-50 dark:bg-sentinel-900/20">
                 <span className="text-xl">💙</span>
                 <div>
-                  <div className="font-medium text-sentinel-700 dark:text-sentinel-300">守护者</div>
+                  <div className="font-medium text-sentinel-700 dark:text-sentinel-300">{t('groups.sentinel')}</div>
                   <div className="text-xs text-sentinel-600 dark:text-sentinel-400">ISTJ, ISFJ, ESTJ, ESFJ</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 p-3 rounded-xl bg-explorer-50 dark:bg-explorer-900/20">
                 <span className="text-xl">💛</span>
                 <div>
-                  <div className="font-medium text-explorer-700 dark:text-explorer-300">探索者</div>
+                  <div className="font-medium text-explorer-700 dark:text-explorer-300">{t('groups.explorer')}</div>
                   <div className="text-xs text-explorer-600 dark:text-explorer-400">ISTP, ISFP, ESTP, ESFP</div>
                 </div>
               </div>
@@ -82,20 +84,20 @@ export function AboutPage() {
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 card-shadow animate-slide-up" style={{ animationDelay: '0.3s' }}>
             <h3 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
               <span className="text-xl">⚠️</span>
-              免责声明
+              {t('about.disclaimer')}
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-              本应用仅供娱乐和自我探索参考，测试结果不构成任何专业心理诊断。如需专业心理评估，请咨询专业人士。
+              {t('about.disclaimerDesc')}
             </p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 card-shadow animate-slide-up" style={{ animationDelay: '0.4s' }}>
             <h3 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
               <span className="text-xl">⚙️</span>
-              技术栈
+              {t('about.techStack')}
             </h3>
             <div className="flex flex-wrap gap-2">
-              {['React 19', 'TypeScript', 'Vite 7', 'Tailwind CSS 4', 'PWA'].map((tech) => (
+              {['React 19', 'TypeScript', 'Vite 7', 'Tailwind CSS 4', 'PWA', 'i18next'].map((tech) => (
                 <span
                   key={tech}
                   className="px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm"

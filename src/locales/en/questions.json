@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1,
+    "question": "When you're going out for the whole day, you would",
+    "choiceA": "Plan what you will do and when",
+    "choiceB": "Just go"
+  },
+  {
+    "id": 2,
+    "question": "You consider yourself to be",
+    "choiceA": "More spontaneous",
+    "choiceB": "More organized"
+  },
+  {
+    "id": 3,
+    "question": "If you were a teacher, you would prefer to teach",
+    "choiceA": "Fact-based courses",
+    "choiceB": "Courses involving theories"
+  },
+  {
+    "id": 4,
+    "question": "Usually, you",
+    "choiceA": "Easily get along with people",
+    "choiceB": "Are more quiet or reserved"
+  },
+  {
+    "id": 5,
+    "question": "Generally speaking, you get along better with",
+    "choiceA": "Imaginative people",
+    "choiceB": "Realistic people"
+  },
+  {
+    "id": 6,
+    "question": "Do you often let",
+    "choiceA": "Your emotions dominate your reason",
+    "choiceB": "Your reason dominate your emotions"
+  },
+  {
+    "id": 7,
+    "question": "When handling many things, you prefer to",
+    "choiceA": "Act spontaneously",
+    "choiceB": "Follow a plan"
+  },
+  {
+    "id": 8,
+    "question": "Are you",
+    "choiceA": "Easy for others to understand",
+    "choiceB": "Hard for others to understand"
+  },
+  {
+    "id": 9,
+    "question": "Doing things according to a schedule",
+    "choiceA": "Suits you",
+    "choiceB": "Makes you feel constrained"
+  },
+  {
+    "id": 10,
+    "question": "When you have a special task, you prefer to",
+    "choiceA": "Carefully organize and plan before starting",
+    "choiceB": "Figure out what to do as you go"
+  },
+  {
+    "id": 11,
+    "question": "In most cases, you choose to",
+    "choiceA": "Go with the flow",
+    "choiceB": "Follow a schedule"
+  },
+  {
+    "id": 12,
+    "question": "Most people would say you are",
+    "choiceA": "A private person",
+    "choiceB": "A very open person"
+  },
+  {
+    "id": 13,
+    "question": "You would rather be considered",
+    "choiceA": "A practical person",
+    "choiceB": "A clever person"
+  },
+  {
+    "id": 14,
+    "question": "In a large group, usually",
+    "choiceA": "You introduce everyone",
+    "choiceB": "Others introduce you"
+  },
+  {
+    "id": 15,
+    "question": "Who would you make friends with?",
+    "choiceA": "Those who often propose new ideas",
+    "choiceB": "Those who are down-to-earth"
+  },
+  {
+    "id": 16,
+    "question": "You tend to",
+    "choiceA": "Value emotions over logic",
+    "choiceB": "Value logic over emotions"
+  },
+  {
+    "id": 17,
+    "question": "You prefer to",
+    "choiceA": "Wait for things to develop before making plans",
+    "choiceB": "Make plans early"
+  },
+  {
+    "id": 18,
+    "question": "You like to spend a lot of time",
+    "choiceA": "Alone",
+    "choiceB": "With others"
+  },
+  {
+    "id": 19,
+    "question": "Being with many people",
+    "choiceA": "Energizes you",
+    "choiceB": "Often exhausts you"
+  },
+  {
+    "id": 20,
+    "question": "You prefer to",
+    "choiceA": "Arrange appointments and social gatherings well in advance",
+    "choiceB": "Be spontaneous and do whatever is fun at the moment"
+  },
+  {
+    "id": 21,
+    "question": "When planning a trip, you prefer to",
+    "choiceA": "Go with your feelings most of the time",
+    "choiceB": "Know in advance what you'll be doing most days"
+  },
+  {
+    "id": 22,
+    "question": "At social gatherings, you",
+    "choiceA": "Sometimes feel bored",
+    "choiceB": "Often enjoy yourself"
+  },
+  {
+    "id": 23,
+    "question": "Usually, you",
+    "choiceA": "Easily get along with people",
+    "choiceB": "Tend to stay in a corner"
+  },
+  {
+    "id": 24,
+    "question": "Who attracts you more?",
+    "choiceA": "A quick-thinking and very smart person",
+    "choiceB": "A practical person with rich common sense"
+  },
+  {
+    "id": 25,
+    "question": "In daily work, you would",
+    "choiceA": "Quite enjoy handling urgent tasks that require racing against time",
+    "choiceB": "Usually plan in advance to avoid working under pressure"
+  },
+  {
+    "id": 26,
+    "question": "You think others generally",
+    "choiceA": "Take a long time to get to know you",
+    "choiceB": "Get to know you in a short time"
+  },
+  {
+    "id": 27,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Private",
+    "choiceB": "Open"
+  },
+  {
+    "id": 28,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Scheduled",
+    "choiceB": "Spontaneous"
+  },
+  {
+    "id": 29,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Abstract",
+    "choiceB": "Concrete"
+  },
+  {
+    "id": 30,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Gentle",
+    "choiceB": "Firm"
+  },
+  {
+    "id": 31,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Thinking",
+    "choiceB": "Feeling"
+  },
+  {
+    "id": 32,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Facts",
+    "choiceB": "Ideas"
+  },
+  {
+    "id": 33,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Impulse",
+    "choiceB": "Decision"
+  },
+  {
+    "id": 34,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Enthusiastic",
+    "choiceB": "Quiet"
+  },
+  {
+    "id": 35,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Quiet",
+    "choiceB": "Outgoing"
+  },
+  {
+    "id": 36,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Systematic",
+    "choiceB": "Casual"
+  },
+  {
+    "id": 37,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Theory",
+    "choiceB": "Certainty"
+  },
+  {
+    "id": 38,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Sensitive",
+    "choiceB": "Fair"
+  },
+  {
+    "id": 39,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Convincing",
+    "choiceB": "Touching"
+  },
+  {
+    "id": 40,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Statement",
+    "choiceB": "Concept"
+  },
+  {
+    "id": 41,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Unconstrained",
+    "choiceB": "Scheduled"
+  },
+  {
+    "id": 42,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Reserved",
+    "choiceB": "Talkative"
+  },
+  {
+    "id": 43,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Methodical",
+    "choiceB": "Informal"
+  },
+  {
+    "id": 44,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Ideas",
+    "choiceB": "Facts"
+  },
+  {
+    "id": 45,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Compassion",
+    "choiceB": "Foresight"
+  },
+  {
+    "id": 46,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Benefits",
+    "choiceB": "Blessings"
+  },
+  {
+    "id": 47,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Practical",
+    "choiceB": "Theoretical"
+  },
+  {
+    "id": 48,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Few friends",
+    "choiceB": "Many friends"
+  },
+  {
+    "id": 49,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Systematic",
+    "choiceB": "Spontaneous"
+  },
+  {
+    "id": 50,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Imaginative",
+    "choiceB": "Factual"
+  },
+  {
+    "id": 51,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Warmly",
+    "choiceB": "Objectively"
+  },
+  {
+    "id": 52,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Objectively",
+    "choiceB": "Enthusiastically"
+  },
+  {
+    "id": 53,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Build",
+    "choiceB": "Invent"
+  },
+  {
+    "id": 54,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Quiet",
+    "choiceB": "Gregarious"
+  },
+  {
+    "id": 55,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Theory",
+    "choiceB": "Fact"
+  },
+  {
+    "id": 56,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Compassionate",
+    "choiceB": "Logical"
+  },
+  {
+    "id": 57,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Analytical",
+    "choiceB": "Sentimental"
+  },
+  {
+    "id": 58,
+    "question": "Choose the word that appeals to you more",
+    "choiceA": "Reasonable",
+    "choiceB": "Fascinating"
+  },
+  {
+    "id": 59,
+    "question": "When you have to complete a big project in a week, at the beginning you would",
+    "choiceA": "List the different tasks to be done in order",
+    "choiceB": "Start working immediately"
+  },
+  {
+    "id": 60,
+    "question": "In social situations, you often feel",
+    "choiceA": "It's hard to start and maintain conversations with some people",
+    "choiceB": "You can talk comfortably with most people"
+  }
+]

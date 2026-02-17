@@ -1,0 +1,106 @@
+{
+  "app": {
+    "title": "MBTI Personality Test",
+    "version": "Version 1.0.0"
+  },
+  "landing": {
+    "subtitle": "Discover Your Personality Type",
+    "duration": "About 10 minutes",
+    "questions": "60 questions",
+    "description": "Learn about your personality tendencies through scientific questions and get a detailed personality analysis report.",
+    "startTest": "Start Test",
+    "fourTypes": "Four Personality Groups",
+    "fourDimensions": "Four Dimensions",
+    "settings": "Settings",
+    "about": "About"
+  },
+  "groups": {
+    "analyst": "Analysts",
+    "diplomat": "Diplomats",
+    "sentinel": "Sentinels",
+    "explorer": "Explorers"
+  },
+  "dimensions": {
+    "energy": {
+      "title": "Energy Source",
+      "E": "Extraversion",
+      "I": "Introversion",
+      "E_desc": "Gaining energy from the external world",
+      "I_desc": "Gaining energy from the inner world"
+    },
+    "information": {
+      "title": "Information Perception",
+      "S": "Sensing",
+      "N": "Intuition",
+      "S_desc": "Focusing on concrete facts and details",
+      "N_desc": "Focusing on patterns and possibilities"
+    },
+    "decision": {
+      "title": "Decision Making",
+      "T": "Thinking",
+      "F": "Feeling",
+      "T_desc": "Based on logical objective analysis",
+      "F_desc": "Based on values and feelings"
+    },
+    "lifestyle": {
+      "title": "Lifestyle",
+      "J": "Judging",
+      "P": "Perceiving",
+      "J_desc": "Preferring a planned life",
+      "P_desc": "Preferring a flexible and spontaneous life"
+    }
+  },
+  "test": {
+    "question": "Question {{current}} / {{total}}",
+    "previous": "Previous",
+    "next": "Next",
+    "viewResult": "View Results",
+    "dimensionAnalysis": "Dimension Analysis",
+    "personalityDescription": "Personality Description",
+    "strengths": "Strengths",
+    "careers": "Suitable Careers",
+    "famous": "Famous People",
+    "retake": "Retake Test",
+    "backHome": "Back to Home"
+  },
+  "settings": {
+    "title": "Settings",
+    "display": "Display Settings",
+    "darkMode": "Dark Mode",
+    "darkModeDesc": "Switch between dark/light theme",
+    "fontSize": "Font Size",
+    "fontSizeDesc": "Adjust text display size",
+    "fontSizeSmall": "Small",
+    "fontSizeMedium": "Medium",
+    "fontSizeLarge": "Large",
+    "sound": "Sound Settings",
+    "soundEnabled": "Enable Sound",
+    "soundEnabledDesc": "Play sound on click",
+    "data": "Data Management",
+    "clearData": "Clear All Data",
+    "clearDataDesc": "This will clear test progress and all settings",
+    "language": "Language Settings",
+    "languageDesc": "Select application display language"
+  },
+  "history": {
+    "title": "Test History",
+    "clearAll": "Clear All",
+    "empty": "No test records yet",
+    "confirmClear": "Are you sure you want to clear all history?"
+  },
+  "about": {
+    "title": "About",
+    "aboutMBTI": "About MBTI",
+    "aboutMBTIDesc1": "MBTI (Myers-Briggs Type Indicator) is a personality type assessment tool developed based on Carl Jung's psychological type theory.",
+    "aboutMBTIDesc2": "The test evaluates personality types through four dimensions (Extraversion/Introversion, Sensing/Intuition, Thinking/Feeling, Judging/Perceiving), which can combine into 16 different personality types.",
+    "fourTypes": "Four Types",
+    "disclaimer": "Disclaimer",
+    "disclaimerDesc": "This application is for entertainment and self-exploration purposes only. The test results do not constitute any professional psychological diagnosis. Please consult a professional for psychological assessment.",
+    "techStack": "Tech Stack"
+  },
+  "languages": {
+    "zh-CN": "简体中文",
+    "en": "English",
+    "ja": "日本語"
+  }
+}

@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import type { TestHistoryRecord } from '../types'
-import { personalityDescriptions, personalityGroups } from '../data/personalities'
+import { useLocalizedData } from '../hooks/useLocalizedData'
 
 const HISTORY_KEY = 'imbt-test-history'
 
@@ -27,6 +28,8 @@ const groupColors = {
 
 export function HistoryPage() {
   const navigate = useNavigate()
+  const { t, i18n } = useTranslation()
+  const { getPersonality, getGroupName } = useLocalizedData()
   const [history, setHistory] = useState<TestHistoryRecord[]>(loadHistory)
 
   const deleteRecord = (id: string) => {
@@ -36,7 +39,7 @@ export function HistoryPage() {
   }
 
   const clearHistory = () => {
-    if (confirm('确定要清除所有历史记录吗？')) {
+    if (confirm(t('history.confirmClear'))) {
       setHistory([])
       localStorage.removeItem(HISTORY_KEY)
     }
@@ -44,7 +47,8 @@ export function HistoryPage() {
 
   const formatDate = (isoString: string) => {
     const date = new Date(isoString)
-    return date.toLocaleDateString('zh-CN', {
+    const locale = i18n.language === 'ja' ? 'ja-JP' : i18n.language === 'en' ? 'en-US' : 'zh-CN'
+    return date.toLocaleDateString(locale, {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -66,13 +70,13 @@ export function HistoryPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-            <h1 className="text-xl font-semibold text-gray-900 dark:text-white">测试历史</h1>
+            <h1 className="text-xl font-semibold text-gray-900 dark:text-white">{t('history.title')}</h1>
             {history.length > 0 && (
               <button
                 onClick={clearHistory}
                 className="ml-auto text-sm text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300"
               >
-                清除全部
+                {t('history.clearAll')}
               </button>
             )}
           </div>
@@ -83,19 +87,18 @@ export function HistoryPage() {
         {history.length === 0 ? (
           <div className="text-center py-16">
             <div className="text-6xl mb-4">📋</div>
-            <p className="text-gray-500 dark:text-gray-400">暂无测试记录</p>
+            <p className="text-gray-500 dark:text-gray-400">{t('history.empty')}</p>
             <button
               onClick={() => navigate('/test')}
               className="mt-4 px-6 py-2 bg-gradient-to-r from-analyst-600 to-sentinel-600 text-white font-medium rounded-xl hover:opacity-90 transition-opacity"
             >
-              开始测试
+              {t('landing.startTest')}
             </button>
           </div>
         ) : (
           <div className="space-y-4">
             {history.map((record) => {
-              const personality = personalityDescriptions[record.type]
-              const group = personalityGroups[record.group]
+              const personality = getPersonality(record.type)
               const colors = groupColors[record.group]
 
               return (
@@ -131,7 +134,7 @@ export function HistoryPage() {
                   </div>
 
                   <div className="flex items-center justify-between text-sm">
-                    <span className={`inline-block px-2 py-0.5 rounded ${colors.light} ${colors.text}`}>{group.name}</span>
+                    <span className={`inline-block px-2 py-0.5 rounded ${colors.light} ${colors.text}`}>{getGroupName(record.group)}</span>
                     <span className="text-gray-400 dark:text-gray-500">{formatDate(record.completedAt)}</span>
                   </div>
                 </div>

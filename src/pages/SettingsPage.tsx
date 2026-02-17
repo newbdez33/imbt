@@ -1,8 +1,17 @@
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useSettings } from '../hooks/useSettings'
+import type { Language } from '../types'
+
+const languages: { code: Language; label: string }[] = [
+  { code: 'zh-CN', label: '简体中文' },
+  { code: 'en', label: 'English' },
+  { code: 'ja', label: '日本語' },
+]
 
 export function SettingsPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const { settings, updateSettings } = useSettings()
 
   return (
@@ -17,20 +26,47 @@ export function SettingsPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">设置</h1>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{t('settings.title')}</h1>
         </div>
 
         <div className="space-y-6">
           <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden card-shadow">
             <h2 className="px-6 py-4 text-sm font-medium text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900/50">
-              显示设置
+              {t('settings.language')}
+            </h2>
+            
+            <div className="px-6 py-4">
+              <div className="mb-3">
+                <div className="text-gray-900 dark:text-white font-medium">{t('settings.languageDesc')}</div>
+              </div>
+              <div className="flex gap-2">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => updateSettings({ language: lang.code })}
+                    className={`flex-1 py-2.5 px-4 rounded-xl font-medium transition-all ${
+                      settings.language === lang.code
+                        ? 'bg-analyst-500 text-white'
+                        : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
+                    }`}
+                  >
+                    {lang.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden card-shadow">
+            <h2 className="px-6 py-4 text-sm font-medium text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900/50">
+              {t('settings.display')}
             </h2>
             
             <div className="divide-y divide-gray-100 dark:divide-gray-700">
               <div className="px-6 py-4 flex items-center justify-between">
                 <div>
-                  <div className="text-gray-900 dark:text-white font-medium">暗色模式</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400">切换深色/浅色主题</div>
+                  <div className="text-gray-900 dark:text-white font-medium">{t('settings.darkMode')}</div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400">{t('settings.darkModeDesc')}</div>
                 </div>
                 <button
                   onClick={() => updateSettings({ darkMode: !settings.darkMode })}
@@ -49,8 +85,8 @@ export function SettingsPage() {
 
               <div className="px-6 py-4">
                 <div className="mb-3">
-                  <div className="text-gray-900 dark:text-white font-medium">字体大小</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400">调整文字显示大小</div>
+                  <div className="text-gray-900 dark:text-white font-medium">{t('settings.fontSize')}</div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400">{t('settings.fontSizeDesc')}</div>
                 </div>
                 <div className="flex gap-2">
                   {(['small', 'medium', 'large'] as const).map((size) => (
@@ -63,7 +99,7 @@ export function SettingsPage() {
                           : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
                       }`}
                     >
-                      {size === 'small' ? '小' : size === 'medium' ? '中' : '大'}
+                      {size === 'small' ? t('settings.fontSizeSmall') : size === 'medium' ? t('settings.fontSizeMedium') : t('settings.fontSizeLarge')}
                     </button>
                   ))}
                 </div>
@@ -73,13 +109,13 @@ export function SettingsPage() {
 
           <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden card-shadow">
             <h2 className="px-6 py-4 text-sm font-medium text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900/50">
-              音效设置
+              {t('settings.sound')}
             </h2>
             
             <div className="px-6 py-4 flex items-center justify-between">
               <div>
-                <div className="text-gray-900 dark:text-white font-medium">启用音效</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">点击时播放音效</div>
+                <div className="text-gray-900 dark:text-white font-medium">{t('settings.soundEnabled')}</div>
+                <div className="text-sm text-gray-500 dark:text-gray-400">{t('settings.soundEnabledDesc')}</div>
               </div>
               <button
                 onClick={() => updateSettings({ soundEnabled: !settings.soundEnabled })}
@@ -99,7 +135,7 @@ export function SettingsPage() {
 
           <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden card-shadow">
             <h2 className="px-6 py-4 text-sm font-medium text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900/50">
-              数据管理
+              {t('settings.data')}
             </h2>
             
             <div className="px-6 py-4">
@@ -110,10 +146,10 @@ export function SettingsPage() {
                 }}
                 className="w-full py-3 px-4 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 font-medium rounded-xl transition-colors hover:bg-red-100 dark:hover:bg-red-900/30"
               >
-                清除所有数据
+                {t('settings.clearData')}
               </button>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
-                这将清除测试进度和所有设置
+                {t('settings.clearDataDesc')}
               </p>
             </div>
           </div>

@@ -56,10 +56,13 @@ export interface PersonalityDescription {
   emoji: string
 }
 
+export type Language = 'zh-CN' | 'en' | 'ja'
+
 export interface AppSettings {
   fontSize: 'small' | 'medium' | 'large'
   darkMode: boolean
   soundEnabled: boolean
+  language: Language
 }
 
 export interface TestHistoryRecord {

@@ -1,0 +1,106 @@
+{
+  "app": {
+    "title": "MBTI 人格测试",
+    "version": "版本 1.0.0"
+  },
+  "landing": {
+    "subtitle": "发现你的性格类型",
+    "duration": "约 10 分钟完成",
+    "questions": "60 道题目",
+    "description": "通过科学的问题了解你的性格倾向，获得详细的人格分析报告。",
+    "startTest": "开始测试",
+    "fourTypes": "四种人格类型",
+    "fourDimensions": "四个维度",
+    "settings": "设置",
+    "about": "关于"
+  },
+  "groups": {
+    "analyst": "分析师",
+    "diplomat": "外交家",
+    "sentinel": "守护者",
+    "explorer": "探索者"
+  },
+  "dimensions": {
+    "energy": {
+      "title": "能量来源",
+      "E": "外向",
+      "I": "内向",
+      "E_desc": "从外部世界获取能量",
+      "I_desc": "从内心世界获取能量"
+    },
+    "information": {
+      "title": "信息感知",
+      "S": "实感",
+      "N": "直觉",
+      "S_desc": "关注具体事实和细节",
+      "N_desc": "关注整体模式和可能"
+    },
+    "decision": {
+      "title": "决策方式",
+      "T": "思考",
+      "F": "情感",
+      "T_desc": "基于逻辑客观分析",
+      "F_desc": "基于价值观和感受"
+    },
+    "lifestyle": {
+      "title": "生活态度",
+      "J": "判断",
+      "P": "感知",
+      "J_desc": "喜欢有计划的生活",
+      "P_desc": "喜欢灵活随性的生活"
+    }
+  },
+  "test": {
+    "question": "问题 {{current}} / {{total}}",
+    "previous": "上一题",
+    "next": "下一题",
+    "viewResult": "查看结果",
+    "dimensionAnalysis": "维度分析",
+    "personalityDescription": "性格描述",
+    "strengths": "优势",
+    "careers": "适合职业",
+    "famous": "代表人物",
+    "retake": "重新测试",
+    "backHome": "返回首页"
+  },
+  "settings": {
+    "title": "设置",
+    "display": "显示设置",
+    "darkMode": "暗色模式",
+    "darkModeDesc": "切换深色/浅色主题",
+    "fontSize": "字体大小",
+    "fontSizeDesc": "调整文字显示大小",
+    "fontSizeSmall": "小",
+    "fontSizeMedium": "中",
+    "fontSizeLarge": "大",
+    "sound": "音效设置",
+    "soundEnabled": "启用音效",
+    "soundEnabledDesc": "点击时播放音效",
+    "data": "数据管理",
+    "clearData": "清除所有数据",
+    "clearDataDesc": "这将清除测试进度和所有设置",
+    "language": "语言设置",
+    "languageDesc": "选择应用显示语言"
+  },
+  "history": {
+    "title": "测试历史",
+    "clearAll": "清除全部",
+    "empty": "暂无测试记录",
+    "confirmClear": "确定要清除所有历史记录吗？"
+  },
+  "about": {
+    "title": "关于",
+    "aboutMBTI": "关于 MBTI",
+    "aboutMBTIDesc1": "MBTI（迈尔斯-布里格斯类型指标）是一种人格类型评估工具，基于卡尔·荣格的心理类型理论发展而来。",
+    "aboutMBTIDesc2": "该测试通过四个维度（外向/内向、实感/直觉、思考/情感、判断/感知）来评估人格类型，共可组合成16种不同的人格类型。",
+    "fourTypes": "四种类型",
+    "disclaimer": "免责声明",
+    "disclaimerDesc": "本应用仅供娱乐和自我探索参考，测试结果不构成任何专业心理诊断。如需专业心理评估，请咨询专业人士。",
+    "techStack": "技术栈"
+  },
+  "languages": {
+    "zh-CN": "简体中文",
+    "en": "English",
+    "ja": "日本語"
+  }
+}

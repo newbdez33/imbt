@@ -1,0 +1,162 @@
+{
+  "INTJ": {
+    "name": "Architect",
+    "nickname": "Imaginative Strategist",
+    "tagline": "Imaginative and strategic thinkers, with a plan for everything.",
+    "description": "INTJs are imaginative and strategic thinkers who are always prepared. They are independent, decisive, and hold themselves and others to high standards. They excel at spotting flaws in systems and creating long-term plans to achieve their goals.",
+    "strengths": ["Strategic thinking", "Independent", "Determined", "追求卓越", "Good at planning"],
+    "weaknesses": ["Arrogant", "Judgmental", "Over-analyzing", "Social difficulties"],
+    "careers": ["Scientist", "Systems Analyst", "Lawyer", "Engineer", "Investment Banker"],
+    "famous": ["Elon Musk", "Isaac Newton", "Nikola Tesla", "Mark Zuckerberg"]
+  },
+  "INTP": {
+    "name": "Logician",
+    "nickname": "Innovative Inventor",
+    "tagline": "Innovative inventors with an unquenchable thirst for knowledge.",
+    "description": "INTPs are innovative inventors with an unquenchable thirst for knowledge. They view the world with unique perspectives and vibrant intelligence, always seeing possibilities that others overlook.",
+    "strengths": ["Analytical", "Original", "Open-minded", "Objective", "Honest"],
+    "weaknesses": ["Emotionally detached", "Insensitive", "Impatient", "Too abstract"],
+    "careers": ["Scientist", "Software Developer", "Economist", "Mathematician", "Philosopher"],
+    "famous": ["Albert Einstein", "Bill Gates", "Abraham Lincoln", "Charles Darwin"]
+  },
+  "ENTJ": {
+    "name": "Commander",
+    "nickname": "Bold Leader",
+    "tagline": "Bold, imaginative and strong-willed leaders, always finding a way or making one.",
+    "description": "ENTJs are natural leaders with strong drive and determination. They are confident, decisive, and excel at organizing people to achieve goals. They always see the big picture and inspire others to follow.",
+    "strengths": ["Confident", "Efficient", "Strategic", "Determined", "Charismatic"],
+    "weaknesses": ["Stubborn", "Arrogant", "Insensitive", "Impatient"],
+    "careers": ["CEO", "Lawyer", "Management Consultant", "Entrepreneur", "Politician"],
+    "famous": ["Steve Jobs", "Margaret Thatcher", "Franklin D. Roosevelt", "Jack Welch"]
+  },
+  "ENTP": {
+    "name": "Debater",
+    "nickname": "Smart Thinker",
+    "tagline": "Smart and curious thinkers who cannot resist an intellectual challenge.",
+    "description": "ENTPs are smart thinkers who love intellectual challenges. They excel at debating, can see multiple angles of issues, and enjoy intellectual sparring.",
+    "strengths": ["Knowledgeable", "Quick thinking", "Original", "Natural leader", "Charismatic"],
+    "weaknesses": ["Argumentative", "Insensitive", "Intolerant", "Easily bored"],
+    "careers": ["Entrepreneur", "Lawyer", "Consultant", "Journalist", "Systems Analyst"],
+    "famous": ["Benjamin Franklin", "Thomas Edison", "Mark Twain", "Serena Williams"]
+  },
+  "INFJ": {
+    "name": "Advocate",
+    "nickname": "Quiet Idealist",
+    "tagline": "Quiet and mysterious, but profoundly inspiring.",
+    "description": "INFJs pursue meaningful relationships, are insightful, and can inspire others. They are natural leaders with strong values and a desire to change the world.",
+    "strengths": ["Creative", "Insightful", "Principled", "Passionate", "Altruistic"],
+    "weaknesses": ["Too sensitive", "Perfectionist", "Easily burned out", "Too private"],
+    "careers": ["Counselor", "Writer", "HR", "Non-profit", "Educator"],
+    "famous": ["Martin Luther King Jr.", "Mother Teresa", "Nelson Mandela", "Goethe"]
+  },
+  "INFP": {
+    "name": "Mediator",
+    "nickname": "Poetic Idealist",
+    "tagline": "Poetic, kind and altruistic souls, always eager to help a good cause.",
+    "description": "INFPs are true idealists, always looking for the good in everything, even in things that aren't so good. They are creative and have a deep understanding of human nature.",
+    "strengths": ["Empathetic", "Generous", "Open-minded", "Creative", "Passionate"],
+    "weaknesses": ["Unrealistic", "Self-critical", "Emotionally vulnerable", "Hard to know"],
+    "careers": ["Writer", "Counselor", "Social Worker", "Designer", "Teacher"],
+    "famous": ["William Shakespeare", "John Lennon", "J.R.R. Tolkien", "William Wordsworth"]
+  },
+  "ENFJ": {
+    "name": "Protagonist",
+    "nickname": "Charismatic Leader",
+    "tagline": "Charismatic and inspiring leaders, able to captivate their audience.",
+    "description": "ENFJs are natural leaders, full of passion and charisma. They can inspire others to achieve goals and excel at understanding others' feelings and motivations.",
+    "strengths": ["Charismatic", "Empathetic", "Reliable", "Passionate", "Altruistic"],
+    "weaknesses": ["Unrealistic", "Too idealistic", "Too sensitive", "Self-sacrificing"],
+    "careers": ["Teacher", "Politician", "Counselor", "Sales Manager", "HR"],
+    "famous": ["Barack Obama", "Oprah Winfrey", "Martin Luther King Jr.", "Ben Affleck"]
+  },
+  "ENFP": {
+    "name": "Campaigner",
+    "nickname": "Enthusiastic Free Spirit",
+    "tagline": "Enthusiastic, creative and sociable free spirits, who can always find a reason to smile.",
+    "description": "ENFPs are true free spirits who often become the life of the party. They are outgoing, enthusiastic, but also deeply thoughtful, seeking genuine connections.",
+    "strengths": ["Observant", "Enthusiastic", "Creative", "Good communicator", "Energetic"],
+    "weaknesses": ["Distracted", "Overly idealistic", "Emotional fluctuations", "Weak focus"],
+    "careers": ["Journalist", "Counselor", "Actor", "Marketing", "Writer"],
+    "famous": ["Robin Williams", "Robert Downey Jr.", "Will Smith", "Walt Disney"]
+  },
+  "ISTJ": {
+    "name": "Logistician",
+    "nickname": "Practical Executor",
+    "tagline": "Practical and fact-minded individuals, whose reliability cannot be doubted.",
+    "description": "ISTJs are serious, reliable, and responsible. They value tradition and loyalty, prefer organized work. They are excellent organizers who can get things done perfectly.",
+    "strengths": ["Honest", "Strong-willed", "Responsible", "Practical", "Organized"],
+    "weaknesses": ["Stubborn", "Inflexible", "Judgmental", "Poor emotional expression"],
+    "careers": ["Accountant", "Auditor", "Data Analyst", "Project Manager", "Judge"],
+    "famous": ["George Washington", "Angela Merkel", "Warren Buffett", "Jeff Bezos"]
+  },
+  "ISFJ": {
+    "name": "Defender",
+    "nickname": "Warm Guardian",
+    "tagline": "Very dedicated and warm protectors, always ready to defend their loved ones.",
+    "description": "ISFJs are very warm, responsible, and enjoy helping others. They value harmony and cooperation, have a strong sense of responsibility towards others, and are the most loyal friends.",
+    "strengths": ["Supportive", "Reliable", "Patient", "Observant", "Practical"],
+    "weaknesses": ["Too humble", "Can't say no", "Conflict-avoidant", "Suppresses emotions"],
+    "careers": ["Nurse", "Social Worker", "Teacher", "Administrative Assistant", "Counselor"],
+    "famous": ["Beyoncé", "Kate Middleton", "Hank Aaron", "Rosa Parks"]
+  },
+  "ESTJ": {
+    "name": "Executive",
+    "nickname": "Excellent Manager",
+    "tagline": "Excellent administrators, unsurpassed at managing things or people.",
+    "description": "ESTJs are excellent organizers who love order and tradition. They are practical, realistic, can effectively manage projects and people, and are natural leaders.",
+    "strengths": ["Dedicated", "Organized", "Direct", "Loyal", "Patient"],
+    "weaknesses": ["Stubborn", "Inflexible", "Difficulty expressing emotion", "Judgmental"],
+    "careers": ["Manager", "Judge", "Banker", "Military Officer", "School Administrator"],
+    "famous": ["Michelle Obama", "John D. Rockefeller", "Judge Judy", "Sandra Day O'Connor"]
+  },
+  "ESFJ": {
+    "name": "Consul",
+    "nickname": "Caring Socializer",
+    "tagline": "Extraordinarily caring, social and popular people, always eager to help.",
+    "description": "ESFJs are very social people who enjoy helping others. They value harmony, are excellent team members, and can always create a warm atmosphere.",
+    "strengths": ["Loyal", "Sensitive", "Outgoing", "Organized", "Practical"],
+    "weaknesses": ["Needs approval", "Low self-esteem", "Judgmental", "Too selfless"],
+    "careers": ["Nurse", "Teacher", "Social Worker", "Administrative Assistant", "Sales"],
+    "famous": ["Taylor Swift", "Hugh Jackman", "Jennifer Garner", "Ed Sheeran"]
+  },
+  "ISTP": {
+    "name": "Virtuoso",
+    "nickname": "Bold Experimenter",
+    "tagline": "Bold and practical experimenters, masters of all kinds of tools.",
+    "description": "ISTPs are natural makers who enjoy hands-on problem solving. They are calm and collected, excel in crises, and have a natural understanding of machinery and systems.",
+    "strengths": ["Optimistic", "Creative", "Practical", "Flexible", "Crisis management"],
+    "weaknesses": ["Emotionally cold", "Insensitive", "Risk-taker", "Commitment issues"],
+    "careers": ["Engineer", "Pilot", "Technician", "Programmer", "Athlete"],
+    "famous": ["Clint Eastwood", "Tom Cruise", "Michael Jordan", "Bruce Lee"]
+  },
+  "ISFP": {
+    "name": "Adventurer",
+    "nickname": "Flexible Artist",
+    "tagline": "Flexible and charming artists, always ready to explore and experience something new.",
+    "description": "ISFPs are true artists who use their senses to appreciate beauty. They are flexible, charming, enjoy exploring and experiencing new things, pursuing freedom and self-expression.",
+    "strengths": ["Charming", "Sensitive", "Imaginative", "Passionate", "Curious"],
+    "weaknesses": ["Emotionally vulnerable", "Escapist", "Weak competitiveness", "Moody"],
+    "careers": ["Artist", "Designer", "Chef", "Massage Therapist", "Photographer"],
+    "famous": ["Michael Jackson", "Marilyn Monroe", "David Beckham", "Bob Dylan"]
+  },
+  "ESTP": {
+    "name": "Entrepreneur",
+    "nickname": "Smart Action-Taker",
+    "tagline": "Smart, energetic and very perceptive people, who truly enjoy living on the edge.",
+    "description": "ESTPs never lack energy, they love drama, passion, and pleasure. They live in the moment, act quickly, and are natural adventurers.",
+    "strengths": ["Direct", "Perceptive", "Bold", "Rational", "Practical"],
+    "weaknesses": ["Insensitive", "Impatient", "Risk-taker", "Poor emotional expression"],
+    "careers": ["Sales", "Entrepreneur", "Athlete", "Police", "Firefighter"],
+    "famous": ["Donald Trump", "Madonna", "Jack Nicholson", "Eddie Murphy"]
+  },
+  "ESFP": {
+    "name": "Entertainer",
+    "nickname": "Spontaneous Entertainer",
+    "tagline": "Spontaneous, energetic and enthusiastic people - life is never boring with them.",
+    "description": "ESFPs are natural performers who love the spotlight. They are full of energy, enjoy entertaining others, and are the best at enjoying life.",
+    "strengths": ["Bold", "Original", "Charismatic", "Observant", "Practical"],
+    "weaknesses": ["Too sensitive", "Conflict-avoidant", "Easily bored", "Poor long-term planning"],
+    "careers": ["Actor", "Host", "Sales", "Event Planner", "Tour Guide"],
+    "famous": ["Marilyn Monroe", "Elvis Presley", "Will Smith", "Cameron Diaz"]
+  }
+}

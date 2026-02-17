@@ -1,30 +1,32 @@
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export function MenuPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
   const menuItems = [
     {
-      label: '开始测试',
-      description: '完成 60 道题目，发现你的人格类型',
+      label: t('landing.startTest'),
+      description: t('landing.questions'),
       path: '/test',
       icon: '🎯',
     },
     {
-      label: '测试历史',
-      description: '查看以往的测试记录',
+      label: t('history.title'),
+      description: t('history.empty').replace('暂无测试记录', '').replace('No test records yet', '').replace('テスト記録がありません', ''),
       path: '/history',
       icon: '📋',
     },
     {
-      label: '设置',
-      description: '字体大小、暗色模式、音效',
+      label: t('landing.settings'),
+      description: t('settings.display') + ', ' + t('settings.sound'),
       path: '/settings',
       icon: '⚙️',
     },
     {
-      label: '关于',
-      description: '关于此应用的更多信息',
+      label: t('landing.about'),
+      description: t('about.title'),
       path: '/about',
       icon: 'ℹ️',
     },
@@ -34,7 +36,7 @@ export function MenuPage() {
     <div className="min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-md mx-auto space-y-6">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white text-center">
-          IMBT 人格测试
+          {t('app.title')}
         </h1>
 
         <div className="space-y-3">

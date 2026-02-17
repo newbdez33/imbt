@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useTest } from '../hooks/useTest'
-import { questions } from '../data/questions'
-import { personalityDescriptions, personalityGroups } from '../data/personalities'
+import { useLocalizedData } from '../hooks/useLocalizedData'
+import { personalityGroups } from '../data/personalities'
 
 const groupColors = {
   analyst: { bg: 'bg-analyst-500', light: 'bg-analyst-100 dark:bg-analyst-900/30', text: 'text-analyst-600 dark:text-analyst-400', border: 'border-analyst-500' },
@@ -13,6 +14,8 @@ const groupColors = {
 
 export function TestPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
+  const { getQuestions, getPersonality, getGroupName } = useLocalizedData()
   const initializedRef = useRef(false)
   const {
     currentQuestion,
@@ -34,13 +37,30 @@ export function TestPage() {
     }
   }, [startNewTest])
 
+  const questions = getQuestions()
   const totalQuestions = questions.length
   const question = questions[currentQuestion]
   const currentAnswer = getCurrentAnswer()
   const progress = ((currentQuestion + 1) / totalQuestions) * 100
 
+  const getDimensionLabel = (leftCode: string): string => {
+    if (leftCode === 'E') return t('dimensions.energy.E')
+    if (leftCode === 'S') return t('dimensions.information.S')
+    if (leftCode === 'T') return t('dimensions.decision.T')
+    if (leftCode === 'J') return t('dimensions.lifestyle.J')
+    return leftCode
+  }
+
+  const getDimensionRightLabel = (rightCode: string): string => {
+    if (rightCode === 'I') return t('dimensions.energy.I')
+    if (rightCode === 'N') return t('dimensions.information.N')
+    if (rightCode === 'F') return t('dimensions.decision.F')
+    if (rightCode === 'P') return t('dimensions.lifestyle.P')
+    return rightCode
+  }
+
   if (isComplete && result) {
-    const personality = personalityDescriptions[result.type]
+    const personality = getPersonality(result.type)
     const group = personalityGroups[result.group]
     const colors = groupColors[result.group]
 
@@ -54,7 +74,7 @@ export function TestPage() {
             
             <div>
               <div className={`inline-block px-3 py-1 rounded-full ${colors.light} ${colors.text} text-sm font-medium mb-3`}>
-                {group.name} · {group.nameEn}
+                {getGroupName(result.group)} · {group.nameEn}
               </div>
               <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
                 {result.type}
@@ -78,18 +98,18 @@ export function TestPage() {
                 <svg className="w-5 h-5 text-sentinel-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
-                维度分析
+                {t('test.dimensionAnalysis')}
               </h3>
               <div className="space-y-4">
-                <DimensionResult label="外向" leftCode="E" rightCode="I" leftValue={result.percentages.E} rightValue={result.percentages.I} />
-                <DimensionResult label="实感" leftCode="S" rightCode="N" leftValue={result.percentages.S} rightValue={result.percentages.N} />
-                <DimensionResult label="思考" leftCode="T" rightCode="F" leftValue={result.percentages.T} rightValue={result.percentages.F} />
-                <DimensionResult label="判断" leftCode="J" rightCode="P" leftValue={result.percentages.J} rightValue={result.percentages.P} />
+                <DimensionResult label={getDimensionLabel('E')} rightLabel={getDimensionRightLabel('I')} leftCode="E" rightCode="I" leftValue={result.percentages.E} rightValue={result.percentages.I} />
+                <DimensionResult label={getDimensionLabel('S')} rightLabel={getDimensionRightLabel('N')} leftCode="S" rightCode="N" leftValue={result.percentages.S} rightValue={result.percentages.N} />
+                <DimensionResult label={getDimensionLabel('T')} rightLabel={getDimensionRightLabel('F')} leftCode="T" rightCode="F" leftValue={result.percentages.T} rightValue={result.percentages.F} />
+                <DimensionResult label={getDimensionLabel('J')} rightLabel={getDimensionRightLabel('P')} leftCode="J" rightCode="P" leftValue={result.percentages.J} rightValue={result.percentages.P} />
               </div>
             </div>
 
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 card-shadow animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">性格描述</h3>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">{t('test.personalityDescription')}</h3>
               <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                 {personality.description}
               </p>
@@ -98,7 +118,7 @@ export function TestPage() {
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 card-shadow animate-slide-up" style={{ animationDelay: '0.3s' }}>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                 <span className="text-green-500">✓</span>
-                优势
+                {t('test.strengths')}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {personality.strengths.map((strength, i) => (
@@ -115,7 +135,7 @@ export function TestPage() {
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 card-shadow animate-slide-up" style={{ animationDelay: '0.4s' }}>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                 <span className="text-blue-500">💼</span>
-                适合职业
+                {t('test.careers')}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {personality.careers.map((career, i) => (
@@ -132,7 +152,7 @@ export function TestPage() {
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 card-shadow animate-slide-up" style={{ animationDelay: '0.5s' }}>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                 <span className="text-purple-500">⭐</span>
-                代表人物
+                {t('test.famous')}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {personality.famous.map((person, i) => (
@@ -151,13 +171,13 @@ export function TestPage() {
                 onClick={resetTest}
                 className="flex-1 py-3 px-4 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium rounded-xl transition-colors hover:bg-gray-200 dark:hover:bg-gray-600"
               >
-                重新测试
+                {t('test.retake')}
               </button>
               <button
                 onClick={() => navigate('/')}
                 className={`flex-1 py-3 px-4 ${colors.bg} text-white font-medium rounded-xl transition-colors hover:opacity-90`}
               >
-                返回首页
+                {t('test.backHome')}
               </button>
             </div>
           </div>
@@ -181,7 +201,7 @@ export function TestPage() {
             </button>
             <div className="flex-1">
               <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-2">
-                <span>问题 {currentQuestion + 1} / {totalQuestions}</span>
+                <span>{t('test.question', { current: currentQuestion + 1, total: totalQuestions })}</span>
                 <span>{Math.round(progress)}%</span>
               </div>
               <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
@@ -271,14 +291,14 @@ export function TestPage() {
               disabled={currentQuestion === 0}
               className="flex-1 py-3.5 px-4 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium rounded-xl transition-colors disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-200 dark:hover:bg-gray-600"
             >
-              上一题
+              {t('test.previous')}
             </button>
             <button
               onClick={() => goToNext(totalQuestions)}
               disabled={!currentAnswer}
               className="flex-1 py-3.5 px-4 bg-gradient-to-r from-analyst-600 to-sentinel-600 text-white font-medium rounded-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:opacity-90"
             >
-              {currentQuestion === totalQuestions - 1 ? '查看结果' : '下一题'}
+              {currentQuestion === totalQuestions - 1 ? t('test.viewResult') : t('test.next')}
             </button>
           </div>
 
@@ -309,12 +329,14 @@ export function TestPage() {
 
 function DimensionResult({ 
   label, 
+  rightLabel,
   leftCode, 
   rightCode, 
   leftValue, 
   rightValue 
 }: { 
   label: string
+  rightLabel: string
   leftCode: string
   rightCode: string
   leftValue: number
@@ -330,7 +352,7 @@ function DimensionResult({
           <span className="text-gray-600 dark:text-gray-300">{label}</span>
         </span>
         <span className="flex items-center gap-2">
-          <span className="text-gray-600 dark:text-gray-300">直觉</span>
+          <span className="text-gray-600 dark:text-gray-300">{rightLabel}</span>
           <span className="w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-xs font-bold text-gray-600 dark:text-gray-300">
             {rightCode}
           </span>
